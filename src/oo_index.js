@@ -7,7 +7,11 @@ const form = document.getElementById("create-task-form");
 const newTask = document.getElementById('new-task-description');
 const tasks = document.getElementById('tasks');
 
-
+tasks.addEventListener('click', function(e){
+  if (e.target && e.target.matches('li button')){
+      deleteTask(e.target);
+  }
+});
 
 
 newTask.addEventListener("blur",function(){
@@ -25,6 +29,11 @@ function createTask(thing){
   let li = document.createElement('li');
       li.innerHTML = thing;
       tasks.appendChild(li).appendChild(delBtn);
+}
+
+function deleteTask(tskBtn){
+  tskBtn.parentNode.remove();
+  tskBtn.remove();
 }
 
 
