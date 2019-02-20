@@ -12,7 +12,11 @@ class TaskList {
   renderTasks() {
     let toRender = ""
     for(let i = 0; i < this.tasks.length; i++){
-      toRender += this.tasks[i].render();
+      toRender += `
+      <div id="task-${i}">
+        ${this.tasks[i].render()}
+      </div>
+      `;
     };
     return toRender;
   };
@@ -21,7 +25,8 @@ class TaskList {
     let toFind = this.tasks.find(task => task.contents == contents);
 
     let indexToDelete = this.tasks.indexOf(toFind);
-    
+
+
     this.tasks.splice(indexToDelete, 1);
   };
 
