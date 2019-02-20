@@ -13,21 +13,20 @@ class TaskList {
     let toRender = ""
     for(let i = 0; i < this.tasks.length; i++){
       toRender += `
-      <div id="task-${i}">
+      <li id="${i}">
         ${this.tasks[i].render()}
-      </div>
+        <button>
+          X
+        </button>
+      </li>
+
       `;
     };
     return toRender;
   };
 
-  deleteTask(contents){
-    let toFind = this.tasks.find(task => task.contents == contents);
-
-    let indexToDelete = this.tasks.indexOf(toFind);
-
-
-    this.tasks.splice(indexToDelete, 1);
+  deleteTask(taskIndex){
+    this.tasks.splice(taskIndex, 1);
   };
 
 

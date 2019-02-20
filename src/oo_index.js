@@ -18,9 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   taskUl.addEventListener('click', function(e) {
-    taskList.deleteTask(e.target.getAttribute('data-contents'));
-    //console.log(e.target.getAttribute('data-contents'));
-    renderPage();
+  //  taskList.deleteTask(e.target.innerText);
+    if (e.target.tagName === 'BUTTON') {
+      taskList.deleteTask(e.target.parentNode.id);
+      renderPage();
+    };
   });
 
 });
